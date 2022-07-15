@@ -25,7 +25,7 @@ exports.createCompany = (req, res) => {
 
 exports.getAllCompany = async (req, res) => {
   try {
-    const companies = await Company.find({}).select({company_name:1});
+    const companies = await Company.find({}).select({ company_name: 1 });
     res.status(200).json({
       status: res.statusCode,
       result: companies,
@@ -42,7 +42,7 @@ exports.getAllCompany = async (req, res) => {
 
 exports.getCompany = async (req, res) => {
   try {
-    const companies = await Company.find({company_name: req.params.company_name});
+    const companies = await Company.find({company_name: new RegExp(req.params.company_name, 'i')});
     res.status(200).json({
       status: res.statusCode,
       result: companies,
