@@ -25,7 +25,7 @@ exports.createCompany = (req, res) => {
 
 exports.getAllCompany = async (req, res) => {
   try {
-    const companies = await Company.find({});
+    const companies = await Company.find({}).select({company_name:1});
     res.status(200).json({
       status: res.statusCode,
       result: companies,
