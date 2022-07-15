@@ -42,7 +42,7 @@ exports.getAllCompany = async (req, res) => {
 
 exports.getCompany = async (req, res) => {
   try {
-    const companies = await Company.findById(req.params.id);
+    const companies = await Company.find({company_name: req.params.company_name});
     res.status(200).json({
       status: res.statusCode,
       result: companies,

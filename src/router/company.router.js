@@ -4,7 +4,7 @@ const companyController = require('../controllers/company.controller')
 const router = express.Router()
 
 router
-  .route('/:id')
+  .route('/:company_name')
   .get(companyController.getCompany)
 
 router
